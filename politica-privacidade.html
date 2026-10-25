@@ -16,7 +16,7 @@
 <body>
 
 <h1>Política de Privacidade — Nail Manager</h1>
-<p class="updated">Última atualização: 1 de junho de 2026</p>
+<p class="updated">Última atualização: 25 de outubro de 2026</p>
 
 <p>Esta Política de Privacidade descreve como o aplicativo <strong>Nail Manager</strong> ("Aplicativo", "nós") coleta, usa, armazena e compartilha as informações pessoais das usuárias ("você", "Usuária") que utilizam nosso serviço. Estamos comprometidos com a proteção dos seus dados conforme a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).</p>
 
@@ -38,7 +38,7 @@
     <li>Telefone</li>
     <li>Data de nascimento</li>
     <li>Nome comercial (do salão/espaço)</li>
-    <li>Senha (armazenada de forma criptografada via Firebase Authentication)</li>
+    <li>Dados de autenticação gerenciados pelo Firebase Authentication. A senha não é armazenada no banco próprio do Nail Manager.</li>
 </ul>
 
 <h3>2.2 Dados de uso do serviço</h3>
@@ -53,12 +53,15 @@
 <ul>
     <li>Plano contratado e status da assinatura</li>
     <li>Histórico de transações</li>
+    <li>Identificadores de compras, recibos assinados, validade de acesso e confirmações ou estornos informados pelos provedores</li>
+    <li>Nas versões que solicitam CPF para gerar o Pix, o documento é enviado ao Mercado Pago para essa finalidade. Não é salvo no cadastro, no histórico de pagamentos ou no cache do Nail Manager. O Mercado Pago pode conservá-lo conforme sua própria política e obrigações.</li>
+    <li>Nas versões com compras Apple, usamos os dados necessários para verificar a compra, recuperar o acesso e processar notificações. Para pagamentos externos elegíveis no iPhone, enviamos à Apple os identificadores e fatos financeiros exigidos pelos relatórios, inclusive valores, moeda, período e estornos.</li>
     <li><strong>Dados de cartão de crédito NÃO são armazenados pelo Nail Manager.</strong> Eles são processados diretamente pelas plataformas Stripe e Mercado Pago, que possuem certificação PCI-DSS.</li>
 </ul>
 
 <h3>2.4 Dados técnicos</h3>
 <ul>
-    <li>Identificador único do dispositivo</li>
+    <li>Identificadores da conta e tokens de notificações, quando esse recurso é permitido</li>
     <li>Token de autenticação Firebase (renovado automaticamente)</li>
     <li>Logs de erros e crashes (via Sentry) — para diagnóstico e correção</li>
     <li>Endereço IP e horário de acesso (para fins de segurança)</li>
@@ -79,7 +82,7 @@
 <p>O tratamento dos seus dados é fundamentado nas seguintes bases legais:</p>
 <ul>
     <li><strong>Execução de contrato</strong> (Art. 7º, V) — para prestação do serviço contratado</li>
-    <li><strong>Consentimento</strong> (Art. 7º, I) — para notificações marketing (opcional)</li>
+    <li><strong>Consentimento</strong> (Art. 7º, I), quando aplicável — para recursos opcionais e permissões solicitadas no dispositivo</li>
     <li><strong>Cumprimento de obrigação legal</strong> (Art. 7º, II) — registros fiscais e contábeis</li>
     <li><strong>Legítimo interesse</strong> (Art. 7º, IX) — segurança e prevenção de fraudes</li>
 </ul>
@@ -91,14 +94,17 @@
     <li><strong>Fly.io</strong> (EUA) — hospedagem do backend e banco de dados PostgreSQL</li>
     <li><strong>Stripe</strong> (Stripe, Inc., EUA) — processamento de pagamentos via cartão de crédito</li>
     <li><strong>Mercado Pago</strong> (MercadoPago.com Atividades de Internet Ltda., Brasil) — processamento de pagamentos via PIX e cartão</li>
-    <li><strong>Amazon Web Services (AWS S3)</strong> (EUA) — armazenamento de backups criptografados</li>
+    <li><strong>Tigris</strong> — armazenamento das cópias de segurança em serviço compatível com S3</li>
+    <li><strong>Apple</strong> — compras nas versões iOS que oferecem essa opção, validação, recuperação de acesso, notificações e relatórios de pagamentos externos elegíveis</li>
+    <li><strong>Expo e serviços de notificações Apple/Google</strong> — entrega de notificações quando permitidas</li>
+    <li><strong>Meta/WhatsApp</strong> — envio e processamento de confirmações quando o recurso é ativado</li>
     <li><strong>Sentry</strong> (Functional Software, Inc., EUA) — registro de erros técnicos</li>
 </ul>
 
 <p>Não vendemos, alugamos ou cedemos seus dados a terceiros para fins de marketing ou propaganda.</p>
 
 <h2>6. Transferência internacional de dados</h2>
-<p>Alguns dos prestadores acima estão sediados fora do Brasil. Garantimos que essas transferências ocorrem mediante <strong>cláusulas contratuais padrão</strong> e/ou <strong>certificações reconhecidas internacionalmente</strong>, conforme exigido pela LGPD.</p>
+<p>Alguns prestadores podem processar dados fora do Brasil. O tratamento deve observar as condições contratuais e salvaguardas aplicáveis à proteção dos dados pessoais. Para informações sobre os prestadores e o exercício dos seus direitos, utilize o contato desta política.</p>
 
 <h2>7. Seus direitos como titular</h2>
 <p>Conforme a LGPD, você tem os seguintes direitos:</p>
@@ -120,12 +126,13 @@
 </ul>
 
 <h2>8. Retenção e exclusão dos dados</h2>
-<p>Mantemos seus dados enquanto sua conta estiver ativa. Quando você solicita exclusão da conta:</p>
+<p>Mantemos os dados necessários enquanto sua conta estiver ativa e os tratamos de acordo com a finalidade aplicável. Quando você solicita a exclusão da conta:</p>
 <ul>
-    <li>Dados pessoais identificáveis são removidos em até <strong>30 dias</strong></li>
-    <li>Dados financeiros (registros de pagamento) são mantidos por <strong>5 anos</strong> para cumprimento de obrigações fiscais</li>
-    <li>Backups antigos contendo seus dados são purgados em até <strong>90 dias</strong></li>
+    <li>Os dados operacionais da conta são excluídos pelo fluxo do aplicativo. Registros cuja conservação seja necessária para obrigações legais, segurança, atendimento de solicitações ou resolução de problemas podem ser preservados com finalidade específica e acesso restrito.</li>
+    <li>Os registros financeiros necessários à conciliação, validação e comunicação de pagamentos e estornos seguem suas finalidades de conservação. Quando aplicável, o vínculo direto com a conta é removido; os provedores mantêm seus próprios registros conforme suas regras e obrigações.</li>
+    <li>O backup regular mantém as <strong>30 cópias mais recentes</strong>. Cópias históricas específicas preservadas para recuperação e investigação de incidentes ficam fora dessa limpeza automática e devem ser avaliadas conforme a necessidade dessa finalidade. Não ficam acessíveis para uso comum do aplicativo.</li>
 </ul>
+<p><strong>Excluir a conta e cancelar uma cobrança recorrente são procedimentos diferentes.</strong> Antes de excluir a conta, confira o cancelamento da renovação com o provedor usado ou procure o suporte. A compra Apple oferecida nesta versão é de período único, sem renovação automática pela Apple.</p>
 
 <h2>9. Segurança dos dados</h2>
 <p>Adotamos medidas técnicas e organizacionais para proteger seus dados:</p>
@@ -134,7 +141,7 @@
     <li>Senhas armazenadas com hash criptográfico (Firebase)</li>
     <li>Autenticação via token JWT com expiração curta</li>
     <li>Isolamento de dados entre usuárias (cada usuária só acessa seus próprios dados)</li>
-    <li>Backups automáticos diários armazenados de forma criptografada</li>
+    <li>Backups automáticos diários e controle de acesso aos arquivos e às credenciais</li>
     <li>Logs de auditoria de acessos administrativos</li>
 </ul>
 
@@ -145,7 +152,7 @@
     <li>Token de autenticação</li>
     <li>Preferências de uso (tema claro/escuro, etc.)</li>
 </ul>
-<p>Esses dados ficam protegidos no armazenamento seguro do iOS/Android e são removidos ao desinstalar o Aplicativo ou fazer logout.</p>
+<p>O cache utiliza o armazenamento local do aplicativo e as proteções do sistema operacional; isso não significa um cofre adicional de criptografia implementado pelo Nail Manager. A persistência depende do dispositivo, das preferências e do fluxo de saída da conta. Proteja seu celular e procure o suporte se precisar de ajuda para remover os dados.</p>
 
 <h2>11. Adolescentes e capacidade civil</h2>
 <p>O Nail Manager é destinado a profissionais maiores de 16 anos. Adolescentes entre 16 e 18 anos podem utilizar o Aplicativo, mas devem ter ciência e, quando aplicável, assistência de seus pais ou responsáveis legais para fins de celebração de contratos de assinatura paga, conforme prevê o Código Civil brasileiro (Art. 4º).</p>
